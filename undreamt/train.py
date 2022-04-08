@@ -353,7 +353,7 @@ class Trainer:
         self.loss = 0
 
     def perplexity_per_word(self):
-        return np.exp(self.loss/self.trg_word_count)
+        return np.exp(self.loss.cpu().numpy()/self.trg_word_count)
 
     def total_time(self):
         return self.io_time + self.forward_time + self.backward_time
